@@ -7,6 +7,6 @@
         public string SenderName { get; set; } = "Nirav Tandel";
         public string SenderEmail { get; set; } = "niravtandelph@gmail.com";
         public string UserName { get; set; } = "niravtandelph@gmail.com";
-        public string Password { get; set; } = "mxdftgqtmumtrgpt";
+        public string Password { get; set; } = "abcdefghijl";
     }
 }
