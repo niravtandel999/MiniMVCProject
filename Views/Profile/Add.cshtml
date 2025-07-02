@@ -1,0 +1,80 @@
+﻿@model MVCTaskProject.Models.UserProfileDto
+
+@{
+    ViewData["Title"] = "Add Profile";
+}
+
+<h2 class="text-center mb-4" style="font-family: 'Arial', sans-serif; color: #333;">Add Profile</h2>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Add" method="post" class="border p-4 bg-light shadow">
+                <div class="form-group mb-3">
+                    <label asp-for="FirstName" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Enter first name" style="border-radius: 8px;" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="LastName" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="LastName" class="form-control" placeholder="Enter last name" style="border-radius: 8px;" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Enter email address" style="border-radius: 8px;" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Phone" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="Phone" class="form-control" placeholder="Enter phone number" style="border-radius: 8px;" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="DOB" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="DOB" type="date" class="form-control" style="border-radius: 8px;" />
+                    <span asp-validation-for="DOB" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="font-weight-bold" style="color: #555;"></label>
+                    <input asp-for="City" class="form-control" placeholder="Enter city name" style="border-radius: 8px;" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group text-center mb-4">
+                    <input type="submit" value="Add Profile"
+                           class="
+                           btn btn-primary btn-lg w-100"
+                           style="
+                           border-radius: 8px;
+                           background-color: #007bff;
+                           border-color: #007bff;
+                           font-weight: bold;" />
+                </div>
+            </form>
+
+            <!-- Back to Profile Button -->
+            <div class="text-center mt-3">
+                <button class="btn btn-secondary">
+                    <a href="@Url.Action("Index", "Profile")"
+                       style="
+                       color: white;
+                       text-decoration: none;
+                       font-weight: bold;">Back to Profile</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
