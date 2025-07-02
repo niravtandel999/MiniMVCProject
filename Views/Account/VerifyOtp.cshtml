@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Verify OTP";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+
+        .verify-otp-container {
+            max-width: 400px; 
+            margin: auto; 
+            margin-top: 100px;
+            padding: 30px; 
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+        }
+
+        .alert {
+            border-radius: 5px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="verify-otp-container">
+        <h2 class="text-center mb-4">Verify OTP</h2>
+
+        @if (ViewData["OtpSentMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @ViewData["OtpSentMessage"]
+            </div>
+        }
+
+        <form asp-action="VerifyOtp" method="post">
+            <div class="form-group">
+                <label for="otpInput">Enter OTP:</label>
+                <input type="text" name="otpInput" class="form-control" required placeholder="Enter your OTP" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Verify</button>
+        </form>
+
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger mt-3">
+                @ViewData["ErrorMessage"]
+            </div>
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
